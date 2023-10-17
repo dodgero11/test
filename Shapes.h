@@ -1,64 +1,115 @@
 #ifndef shapes
 #define shapes
 #include <iostream>
-template<typename S>
-class Shape 
+#include <vector>
+#include <memory>
+const double PI = 3.1415926535898;
+
+template <typename S>
+class Shape
 {
 public:
     virtual Shape Area() const = 0;
     virtual Shape Perimiter() const = 0;
 };
 
-template<typename S>
-class Circle :public S<Shape> 
+template <typename S>
+class Circle : public S<Shape>
 {
 private:
-    S radius;
+    S m_radius;
+
 public:
-    Circle(S r):radius(r) {}
+    Circle(S r) : m_radius(r) {}
     S Area() const override
     {
-        return 3.141592654 * radius * radius;
+        return PI * m_radius * m_radius;
     }
-    S Perimiter() const override 
+    S Perimiter() const override
     {
-        return 3.141592654 * 2 * radius;
+        return PI * 2 * m_radius;
     }
 };
 
-template<typename S>
-class Rectangle :public S<Shape>
+template <typename S>
+class Rectangle : public S<Shape>
 {
 private:
-    S height;
-    S width;
+    S m_height;
+    S m_width;
+
 public:
-    Rectangle(S h, S w) : height(h), width(w) {}
+    Rectangle(S h, S w) : m_height(h), m_width(w) {}
     S Area() const override
     {
-        return height * width;
+        return m_height * m_width;
     }
     S Preimiter() const override
     {
-        return (height + width) * 2;
+        return (m_height + m_width) * 2;
     };
 };
 
-template<typename S>
-class Square :public S<Shape>
+template <typename S>
+class Square : public S<Shape>
 {
 private:
-    S side;
+    S m_side;
+
 public:
-    Square(S s):side(s) {}
+    Square(S s) : m_side(s) {}
     S Area() const override
     {
-        return side * side;
+        return m_side * m_side;
     }
-    S Perimiter
+    S Perimiter()
     {
-        return side * 4;
+        return 4 * m_side;
     }
 };
+
+template <typename S>
+class ShapeList
+{
+    virtual std::unique_ptr<Shape<S>> createShape(std::ifstream &infile) = 0;
+};
+
+template <typename S>
+class CircleList : public ShapeList
+{
+public:
+    std::unique_ptr<Shape<S>> createShape(std::ifstream &infile) override
+    {
+        S radius;
+        infile >> m_radius;
+        return std::make_unique<Circle<S>>(radius);
+    }
+};
+
+template <typename S>
+class RectangleList : public ShapeList
+{
+public:
+    std::unique_ptr<Shape<S>> createShape(std::ifstream &infile) override
+    {
+        S width;
+        S height;
+        infile >> height >> width;
+        return std::make_unique<Rectangle<S>>(height, width);
+    }
+};
+
+template <typename S>
+class SquareList : public ShapeList
+{
+public:
+    std::unique_ptr<Shape<s>> createShape(std::ifstream &infile) override
+    {
+        S side;
+        infile >> side;
+        return std::make_unique<Square<S>>(side);
+    }
+};
+
 
 #endif
