@@ -14,7 +14,7 @@ public:
 };
 
 template <typename S>
-class Circle : public S<Shape>
+class Circle : public Shape<S>
 {
 private:
     S m_radius;
@@ -23,16 +23,16 @@ public:
     Circle(S r) : m_radius(r) {}
     S Area() const override
     {
-        return PI * m_radius * m_radius;
+        return (S)PI * m_radius * m_radius;
     }
     S Perimiter() const override
     {
-        return PI * 2 * m_radius;
+        return (S)PI * 2 * m_radius;
     }
 };
 
 template <typename S>
-class Rectangle : public S<Shape>
+class Rectangle : public Shape<S>
 {
 private:
     S m_height;
@@ -51,7 +51,7 @@ public:
 };
 
 template <typename S>
-class Square : public S<Shape>
+class Square : public Shape<S>
 {
 private:
     S m_side;
@@ -72,22 +72,25 @@ template <typename S>
 class ShapeList
 {
     virtual std::unique_ptr<Shape<S>> createShape(std::ifstream &infile) = 0;
+
+public:
+    ShapeList CallShape();
 };
 
 template <typename S>
-class CircleList : public ShapeList
+class CircleList : public ShapeList<S>
 {
 public:
     std::unique_ptr<Shape<S>> createShape(std::ifstream &infile) override
     {
-        S radius;
+        S m_radius;
         infile >> m_radius;
-        return std::make_unique<Circle<S>>(radius);
+        return std::make_unique<Circle<S>>(m_radius);
     }
 };
 
 template <typename S>
-class RectangleList : public ShapeList
+class RectangleList : public ShapeList<S>
 {
 public:
     std::unique_ptr<Shape<S>> createShape(std::ifstream &infile) override
@@ -100,16 +103,15 @@ public:
 };
 
 template <typename S>
-class SquareList : public ShapeList
+class SquareList : public ShapeList<S>
 {
 public:
-    std::unique_ptr<Shape<s>> createShape(std::ifstream &infile) override
+    std::unique_ptr<Shape<S>> createShape(std::ifstream &infile) override
     {
         S side;
         infile >> side;
         return std::make_unique<Square<S>>(side);
     }
 };
-
 
 #endif
