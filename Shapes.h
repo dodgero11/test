@@ -9,8 +9,8 @@ template <typename S>
 class Shape
 {
 public:
-    virtual Shape Area() const = 0;
-    virtual Shape Perimiter() const = 0;
+    virtual Area() const = 0;
+    virtual Perimiter() const = 0;
 };
 
 template <typename S>
@@ -44,7 +44,7 @@ public:
     {
         return m_height * m_width;
     }
-    S Preimiter() const override
+    S Perimiter() const override
     {
         return (m_height + m_width) * 2;
     };
@@ -72,9 +72,6 @@ template <typename S>
 class ShapeList
 {
     virtual std::unique_ptr<Shape<S>> createShape(std::ifstream &infile) = 0;
-
-public:
-    ShapeList CallShape();
 };
 
 template <typename S>
