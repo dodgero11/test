@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/header') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/index_extra.css">
+<body>
+    <!-- Sidebar -->
+    <%- include('partials/sidebar') %>  
+    <%- include('partials/bottom_bar') %>
+    <div class="content-wrapper">
+        
+    </div>
+    
+    <main class="main-container main-container-extra">
+        <%- include('partials/navbar', { 
+            showDropdown: true, 
+            navbarTitle: "For You", 
+            dropdownOptions: [
+                { href: "#", label: "Follow", type: "follow", active: false }
+            ]
+        }) %>
+        
+        <div class="content-container content-container-extra">
+            <img src="<%= user.avatar %>" 
+                    onerror="this.onerror=null;this.src='/icons/profile.svg';" 
+                    alt="Avatar" class="rounded-circle" 
+                    style="width: 40px; height: 40px; margin-right: 2rem;">
+
+            <p class="plus-button" style ="opacity: 0.5;">What's new</p>
+            <button class="btn btn-outline-secondary ml-auto plus-button">Post</button>
+        </div>
+
+        <div class="post-feed post-feed-extra">
+            <% posts.forEach(post => { %>
+                <div class="card card-extra mb-3" data-post-id="<%= post._id %>">
+                    <div class="card-body">
+                        <div class="card-info card-info-extra d-flex align-items-center mb-2" data-post-id="<%= post._id %>">
+                            <!-- Hiển thị ảnh đại diện người dùng -->
+                            <a class="avatar" href="/profile/<%= post.author._id %>">
+                                <img src="<%= post.author.avatar %>" 
+                                    onerror="this.onerror=null;this.src='/icons/profile.svg';" 
+                                    alt="Avatar" class="rounded-circle" 
+                                    style="width: 40px; height: 40px; margin-right: 2rem;">   
+                            </a>
+                            <a class="ml-2" href="/profile/<%= post.author._id %>">
+                                <h5 class="card-title mb-0" style="color: #333;"><%= post.author.username %></h5>
+                                <small class="text-muted text-muted-extra"><%= new Date(post.createdAt).toLocaleString() %></small>
+                            </a>
+                        </div>
+        
+                        <!-- Hiển thị nội dung bài viết -->
+                        <p class="card-text card-info card-info-extra" data-post-id="<%= post._id %>"> <%= post.content %> </p>
+        
+                        <!-- Hiển thị hình ảnh đính kèm (nếu có) -->
+                        <% if (post.postImage && post.postImage.length > 0) { %>
+                            <div class="post-images">
+                                <% post.postImage.forEach(image => { %>
+                                    <img src="<%= image %>" alt="Post Image" class="img-fluid mb-2" 
+                                         style="max-width: 100%; border-radius: 8px;">
+                                <% }); %>
+                              </div>
+                              <% if (post.postImage.length > 1) { %>
+                                <a class="carousel-control-prev carousel-control-prev-extra" href="#carousel-<%= post._id %>" role="button" data-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next carousel-control-next-extra" href="#carousel-<%= post._id %>" role="button" data-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                              <% } %>
+                            </div>
+                          <% } %>
+                          
+        
+                        <!-- Các nút like, comment, share -->
+                        <div class="button-container-extra d-flex justify-content-between align-items-center">
+                            <div>
+                                <button class="btn btn-link btn-link-extra like-button <%= post.likes.some(user => user._id.toString() === currentUserId) ? 'liked' : '' %>" 
+                                    data-post-id="<%= post._id %>">
+                                    <img src="<%= post.likes.some(user => user._id.toString() === currentUserId) ? '/icons/heart_active.svg' : '/icons/heart.svg' %>" 
+                                        alt="Like" 
+                                        class="like-icon" 
+                                        style="width: 20px; height: 20px;">
+                                <span class="like-count like-count-extra"><%= post.likes.length %></span>
+                            </button>
+                            
+                                
+                                <button class="btn btn-link btn-link-extra comment-button" data-toggle="modal" data-target="#commentModal" data-post-id="<%= post._id %>">
+                                    <img src="/icons/comment_1.svg" 
+                                         alt="Comment" 
+                                         class="comment-icon" 
+                                         style="width: 20px; height: 20px;">
+                                    <span class="comment-count comment-count-extra"><%= post.comments.length %></span>
+                                  </button>
+                                  
+                                <button class="btn btn-link btn-link-extra repost-button" data-post-id="<%= post._id %>">
+                                    <img src="/icons/rePost.svg" alt="Repost" style="width: 20px; height: 20px;">
+                                    <span class="repost-count repost-count-extra"><%= post.reposts ? post.reposts.length : 0 %></span>
+                                  </button>
+                                  
+                                <button class="btn btn-link btn-link-extra">
+                                    <i class="bi bi-share"></i>
+                                </button>
+                            </div>
+                            <button class="btn btn-link btn-link-extra more-options">
+                                <i class="bi bi-three-dots"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        
+    </main>
+    <!-- Modal -->
+    <%- include('partials/modal', {
+        modalId: 'postModal',
+        modalTitle: 'New Threads',
+        modalBody: '<p>Đây là nội dung của modal popup.</p>'
+    }) %>
+    <%- include('partials/commentModal') %>
+
+    <!-- JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/sidebar_bottombar.js"></script>
+</body>
+</html>

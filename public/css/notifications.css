@@ -1,0 +1,173 @@
+/* Container chính */
+.post-feed .activity-list {
+    background-color: #ffffff; /* Nền trắng */
+    border-radius: 12px; /* Bo tròn nhẹ */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    padding: 15px 20px;
+    margin: 20px auto;
+    max-width: 600px; /* Chiều rộng tối đa */
+    font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề */
+.post-feed .activity-list h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Danh sách thông báo */
+.post-feed .activity-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-feed .activity-list ul li {
+    display: flex;
+    border-radius: 1rem;
+    padding-left: 2rem;
+    border-bottom: 1px solid #eee; /* Đường kẻ ngăn cách */
+}
+
+.post-feed .activity-list ul li:last-child {
+    border-bottom: none; /* Xóa đường kẻ dưới cùng */
+}
+
+/* Tên người khởi tạo thông báo */
+.post-feed .activity-list ul li strong {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+/* Nội dung thông báo */
+.post-feed .activity-list ul li p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.post-feed .activity-list ul li a {
+    color: #007bff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.post-feed .activity-list ul li a:hover {
+    text-decoration: underline; /* Hiệu ứng hover */
+}
+
+/* Thời gian tạo thông báo */
+.post-feed .activity-list ul li small {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 5px;
+}
+
+/* Hover cho từng thông báo */
+.post-feed .activity-list ul li:hover {
+    border-radius: 1rem;
+    transition: background-color 0.5s ease;
+}
+
+
+/* Container danh sách thông báo */
+.post-feed .activity-list {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+}
+
+/* Danh sách thông báo */
+.post-feed .activity-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-feed .activity-list ul li {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.post-feed .activity-list ul li:last-child {
+    border-bottom: none;
+}
+
+/* Ảnh đại diện */
+.post-feed .activity-list ul li .avatar-img {
+    width: 40px; /* Kích thước ảnh đại diện */
+    height: 40px;
+    border-radius: 50%; /* Bo tròn ảnh */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    margin-right: 10px; /* Khoảng cách giữa ảnh và tên */
+}
+
+/* Tên người dùng */
+.post-feed .activity-list ul li strong {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Nội dung thông báo */
+.post-feed .activity-list ul li p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding-left: 3.2rem;
+}
+
+.post-feed .activity-list ul li a {
+    color: #007bff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding-left: 3.2rem;
+}
+
+.post-feed .activity-list ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Thời gian thông báo */
+.post-feed .activity-list ul li small {
+    font-size: 0.8rem;
+    color: #999;
+}
+/* Trạng thái thông báo đã đọc */
+.notification-item.read {
+    background-color: #cbeaf1; /* Màu nền nhạt */
+    color: #090909; /* Màu chữ xám nhạt */
+}
+
+.notification-item.read strong {
+    color: #888; /* Tên người dùng nhạt màu hơn */
+}
+
+.notification-item {
+    background-color: #f4e6e1;
+    transition: opacity 0.5s ease, transform 0.5s ease, margin 0.5s ease;
+}
+.notification-item.fade-out {
+    opacity: 0; /* Mờ dần */
+    transform: translateY(-10px); /* Dịch chuyển lên một chút */
+    margin: 0; /* Co lại margin */
+    pointer-events: none; /* Vô hiệu hóa tương tác */
+}
+.notification-item + .notification-item {
+    margin-top: 10px; /* Giảm khoảng cách giữa các thông báo */
+}

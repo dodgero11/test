@@ -1,0 +1,21 @@
+<nav class="navbar navbar-extra navbar-light mb-3 px-3">
+    <div class="w-100 text-center justify-content-center position-relative">
+        <% if (showDropdown) { %>
+            <span class="navbar-brand navbar-brand-extra mb-0 h4 nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <%= navbarTitle || "Activity" %>
+            </span>
+            <div class="dropdown-menu dropdown-menu-center">
+                <% (dropdownOptions || []).forEach(option => { %>
+                    <a 
+                        class="dropdown-item <%= option.active ? 'active' : '' %>" 
+                        href="<%= option.href %>" 
+                        data-type="<%= option.type || '' %>">
+                        <%= option.label %>
+                    </a>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <span class="navbar-brand navbar-brand-extra mb-0 h4"><%= navbarTitle || "Default Title" %></span>
+        <% } %>
+    </div>
+</nav>

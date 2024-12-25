@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/header') %>
+    <link rel="stylesheet" href="/css/index.css">
+<body>
+    <div class="content-wrapper">
+        
+    </div>
+    <style>
+        .content-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .content-container img {
+            margin-right: 10px; 
+        }
+
+        .content-container p {
+            margin-right: 20px;
+            opacity: 0.7;
+            font-size: 1rem; 
+        }
+
+        .content-container a {
+            margin-left: 10px; 
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column; /* Xếp dọc các phần tử */
+                justify-content: center; /* Căn giữa toàn bộ theo chiều ngang */
+                align-items: center; /* Căn giữa theo chiều dọc */
+                height: 100%; /* Chiều cao full trang (nếu cần) */
+                padding: 10px; /* Tạo khoảng cách xung quanh */
+            }
+
+            .content-container img {
+                margin-bottom: 5px; /* Tạo khoảng cách với phần tử bên dưới */
+                margin-right: 0; /* Reset margin */
+            }
+
+            .content-container p {
+                margin-bottom: 5px; /* Khoảng cách giữa p và button */
+                
+            }
+
+            .content-container a {
+                margin-left: 0; /* Reset margin */
+            }
+        }
+
+    </style>
+    <main class="main-container">
+        <%- include('partials/navbar', { 
+            showDropdown: true, 
+            navbarTitle: "For You", 
+            dropdownOptions: [
+                { href: "#", label: "Follow", type: "follow", active: false }
+            ]
+        }) %>
+        
+        <div class="content-container">
+            <img src="<%= '/icons/profile.svg' %>" 
+                    onerror="this.onerror=null;this.src='/icons/profile.svg';" 
+                    alt="Avatar" class="rounded-circle" 
+                    style="width: 40px; height: 40px; margin-right: 2rem;">
+
+            <p class="plus-button" style ="opacity: 0.5;">Sign in for a more complete experience</p>
+            <a style="" href="/login"><button class="btn btn-outline-secondary ml-auto plus-button" >Sign in</button></a>
+        </div>
+
+        <% posts.forEach(post => { %>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  <img src="<%= post.author.avatar || '/icons/profile.svg' %>" 
+                       onerror="this.onerror=null;this.src='/icons/profile.svg';" 
+                       alt="Avatar" class="rounded-circle" 
+                       style="width: 40px; height: 40px;">
+                  <div>
+                    <h5 class="card-title"><%= post.author.username %></h5>
+                    <small class="text-muted"><%= new Date(post.createdAt).toLocaleString() %></small>
+                  </div>
+                </div>
+                <p class="card-text"><%= post.content %></p>
+              </div>
+            </div>
+          <% }); %>
+          
+        
+    </main>
+    <!-- JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/sidebar_bottombar.js"></script>
+</body>
+</html>

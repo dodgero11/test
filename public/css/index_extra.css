@@ -1,0 +1,125 @@
+@media (min-width: 1024px) {
+
+    .card-title-extra {
+        font-size: 28px !important; /* Larger username */
+    }
+
+    .card-extra {
+        max-width: 600px !important; /* Expand card width */
+        padding: 15px !important; /* Increase padding inside the card */
+        border-radius: 6px !important; /* Larger border radius */
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4) !important; /* Add subtle shadow */
+    }
+
+    .card-info-extra img {
+        width: 40px !important; /* Larger profile image in card */
+        height: 40px !important;
+    }
+
+    .card-info-extra h5 {
+        font-size: 18px !important; /* Prominent username font size */
+    }
+
+    .card-info-extra {
+        font-size: 20px !important; /* Larger post content font */
+    }
+
+    .button-container-extra {
+        margin-left: 0px !important;   
+    }
+
+    .btn-link-extra {
+        border-radius: 6px !important; /* Rounded corners */
+    }
+
+    .btn-link-extra img {
+        width: 20px !important; /* Larger icons for actions */
+        height: 20px !important;
+    }
+
+    .btn-link-extra i {
+        font-size: 18px !important; /* Larger icons for actions */
+    }
+
+    .btn-link-extra span {
+        font-size: 18px !important;
+    }
+
+    .like-count-extra,
+    .comment-count-extra,
+    .repost-count-extra {
+        margin-left: 4px !important; /* Add space between icon and count */
+        font-size: 16px !important; /* Bigger count text */
+    }
+    
+    .carousel-control-prev-icon-extra,
+    .carousel-control-next-icon-extra {
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+/* Styles for dark mode */
+body.dark-mode .card-title-extra {
+    font-size: 28px !important; /* Larger username */
+    color: #fff !important; /* White text for username */
+}
+
+body.dark-mode .card-extra {
+    max-width: 600px !important; /* Expand card width */
+    padding: 15px !important; /* Increase padding inside the card */
+    border-radius: 6px !important; /* Larger border radius */
+    box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.2) !important; /* Lighter shadow */
+    background-color: #333 !important; /* Darker card background */
+}
+
+body.dark-mode .card-info-extra img {
+    width: 40px !important; /* Larger profile image in card */
+    height: 40px !important;
+    filter: invert(1) !important; /* Invert image for dark mode */
+}
+
+body.dark-mode .card-info-extra h5 {
+    font-size: 18px !important; /* Prominent username font size */
+    color: #fff !important; /* White text for username */
+}
+
+body.dark-mode .card-info-extra {
+    font-size: 20px !important; /* Larger post content font */
+    color: #ddd !important; /* Lighter color for post content */
+}
+
+body.dark-mode .btn-link-extra {
+    border-radius: 6px !important; /* Rounded corners */
+    color: #fff !important; /* White text for button */
+}
+
+body.dark-mode .btn-link-extra img {
+    width: 20px !important; /* Larger icons for actions */
+    height: 20px !important;
+    filter: invert(1) !important; /* Invert icon colors */
+}
+
+body.dark-mode .btn-link-extra i {
+    font-size: 18px !important; /* Larger icons for actions */
+    color: #fff !important; /* White icons for actions */
+}
+
+body.dark-mode .btn-link-extra span {
+    font-size: 18px !important;
+    color: #fff !important; /* White text for span */
+}
+
+body.dark-mode .like-count-extra,
+body.dark-mode .comment-count-extra,
+body.dark-mode .repost-count-extra {
+    margin-left: 4px !important; /* Add space between icon and count */
+    font-size: 16px !important; /* Bigger count text */
+    color: #fff !important; /* White text for count */
+}
+
+body.dark-mode .carousel-control-prev-icon-extra,
+body.dark-mode .carousel-control-next-icon-extra {
+    width: 40px !important;
+    height: 40px !important;
+    filter: invert(1) !important; /* Invert icons for dark mode */
+}

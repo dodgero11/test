@@ -1,0 +1,148 @@
+/* Toàn bộ trang */
+body {
+    background-color: rgba(250, 250, 250, 1);
+    color: #333;
+    line-height: 1.8; 
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+p .plus-button{
+    opacity: 0.1; 
+}
+/* Content Container */
+.content-container {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffffff;
+}
+
+/* Nút "Post" */
+.btn-outline-secondary {
+    color: #333;
+    border-color: #ddd;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+/* Main content (Post Feed) */
+
+
+.post-feed .card {
+    background-color: #ffffff;
+    border: none;
+    color: #000000;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 1rem;   
+}
+
+.post-feed .card-body {
+    padding: 1rem;
+
+}
+
+.post-feed .card:last-child {
+    border-bottom: none;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+    color: rgb(215, 215, 215) !important;
+}
+
+.form-control{
+    background-color: #ffffff !important;
+}
+
+
+.replies {
+    margin-left: 2rem; /* Điều chỉnh mức thụt lề */
+    border-left: 2px solid #333; /* Tạo đường viền để phân biệt */
+    padding-left: 15px;
+}
+
+.post-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+  
+.like-icon {
+    transition: opacity 0.2s ease-in-out;
+}
+  
+.like-icon.liked {
+    opacity: 1;
+}
+  
+#commentModal .media img {
+    width: 40px;
+    height: 40px;
+}
+
+.main-container-extra {
+    flex-direction: column !important;
+    align-items: center !important;
+    max-width: 600px !important;
+    width: 100% !important; 
+}
+
+.text-muted-extra {
+    font-size: 14px !important;
+    color: #888 !important;
+}
+
+.content-container-extra {
+    align-items: center !important; /* Center content */
+    max-width: 600px;
+    width: 100%;
+    padding: 10px !important; /* Add padding */
+    font-size: 10px !important; /* Increase font size */
+    margin-bottom: 10px !important; /* Add space below */
+}
+
+.content-container-extra img {
+    width: 40px !important; /* Larger profile image */
+    height: 40px !important;
+    margin-right: 20px !important;
+}
+
+.content-container-extra p {
+    font-size: 20px !important; /* Increase text size */
+}
+
+.content-container-extra .btn {
+    font-size: 14px !important; /* Bigger button text */
+    padding: 10px 20px !important; /* Larger button padding */
+}
+
+.post-feed-extra {
+    max-width: 600px !important; /* Wider feed */
+    width: 100% !important;
+    margin: 0 auto !important; /* Center content */
+}
+
+body.dark-mode .navbar-extra {
+    background-color: #333 !important;
+}
+
+body.dark-mode .main-container-extra {
+    background-color: #333 !important;
+}
+
+body.dark-mode .content-container-extra {
+    background-color: #444 !important;
+}

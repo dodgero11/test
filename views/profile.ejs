@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/profile_extra.css">
+</head>
+<html lang="en">
+    <%- include('partials/header') %>
+
+<body>
+    <!-- Sidebar -->
+    <%- include('partials/sidebar') %>
+    <%- include('partials/bottom_bar') %>
+
+    <div class="content-wrapper">
+        
+
+    </div>
+    
+
+    <main class="main-container main-container-extra">
+        <%- include('partials/navbar', { 
+            showDropdown: false, 
+            navbarTitle: "Profile"
+        }) %>
+
+        <div class="post-feed post-feed-extra" id="profile-container" data-user-id="<%= user._id %>">
+            <div class="post-feed">
+                <!-- Thông tin người dùng -->
+                <div class="profile-header profile-header-extra d-flex align-items-center justify-content-between">
+                    <div style="margin-left: 20px;">
+                        <h5 class="mb-0"><%= user.username %></h5>
+                        <small><%= user.bio && user.bio.trim() !== '' ? user.bio : 'No bio available' %></small><br>
+                        <a onclick="openModal()" class="pointer"><%= followersCount %> Followers</a>
+                    </div>
+                    <img src="<%= user.avatar %>" 
+                    onerror="this.onerror=null;this.src='/icons/profile.svg';" 
+                    alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 2rem;">  
+               
+                </div>
+                
+                
+               <!-- Nút chỉnh sửa hồ sơ -->
+                <div class="text-center text-center-extra my-3">
+                    <button class="btn btn-outline-secondary" onclick="openEditProfile()">Edit Profile</button>
+                </div>
+
+                <div class="d-flex d-flex-extra align-items-center mb-3 px-3">
+                    <img src="<%= user.avatar %>" 
+                    onerror="this.onerror=null;this.src='/icons/profile.svg';" 
+                    alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+                    <input type="text" class="form-control bg-dark text-light plus-button" placeholder="What's new?" style="border: none;">
+                    <button class="btn btn-outline-secondary ml-2 plus-button">Post</button>
+                </div>
+                <!-- Modal chỉnh sửa hồ sơ -->
+                <div id="editProfileModal" class="profile-modal-extra hidden">
+                    <div class="profile-modal-dialog-extra">
+                        <div class="modal-header">
+                            <h5>Chỉnh sửa hồ sơ</h5>
+                            <span class="close" onclick="closeEditProfile()">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/edit-profile" method="POST" enctype="multipart/form-data" id="profileEditForm">
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input type="text" name="username" class="form-control" id="username" value="<%= user.username %>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio:</label>
+                                    <textarea name="bio" class="form-control" id="bio" rows="3"><%= user.bio %></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="avatar">Avatar mới:</label>
+                                    <input type="file" name="avatar" class="form-control-file" id="avatar">
+                                    <input type="hidden" name="currentAvatar" value="<%= user.avatar %>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                                <button type="button" class="btn btn-secondary" onclick="closeEditProfile()">Hủy</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <style >
+                    
+                    .tab-content {
+                        margin-left: 1rem;
+                    display: none; 
+                    }
+                    .tab-content.active {
+                    display: block; 
+                    }
+                </style>
+                <!-- Tabs Post, Reply, Repost -->
+                <ul class="nav nav-tabs justify-content-center mb-3" data-user-id="<%= user._id %>">
+                    <li class="nav-item">
+                    <a class="nav-link nav-link-extra nav-link-profile <%= currentTab === 'threads' ? 'active' : '' %>" href="#" data-tab="threads">Threads</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link nav-link-extra nav-link-profile <%= currentTab === 'replies' ? 'active' : '' %>" href="#" data-tab="replies">Replies</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link nav-link-extra nav-link-profile <%= currentTab === 'reposts' ? 'active' : '' %>" href="#" data-tab="reposts">Reposts</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content-extra" id="tab-content" data-user-id="<%= user._id %>">
+                </div>
+            
+                <!-- Phần tạo bài viết mới -->
+                
+            
+                <!-- Hoàn thiện hồ sơ -->
+                <% if (isNewUser) { %>
+                    <!-- Hoàn thiện hồ sơ -->
+                    <div class="profile-completion  p-3 rounded">
+                      <h6 class="text-white">Finish your profile</h6>
+                      <div class="d-flex justify-content-between">
+                        <!-- Thẻ "Create thread" -->
+                        <div class="card text-center p-3 mx-1" style="width: 100px;">
+                          <i class="bi bi-pencil" style="font-size: 1.5rem;"></i>
+                          <p class="mt-2 mb-3">Create thread</p>
+                          <small>Say what’s on your mind or share a recent highlight.</small>
+                          <button class="btn btn-sm mt-2" style="border: 2px solid #000000;">Create</button>
+                        </div>
+                  
+                        <!-- Thẻ "Follow 5 profiles" -->
+                        <div class="card text-center p-3 mx-1" style="width: 100px;">
+                          <i class="bi bi-people" style="font-size: 1.5rem;"></i>
+                          <p class="mt-2 mb-3">Follow 5 profiles</p>
+                          <small>Fill your feed with threads that interest you.</small>
+                          <button class="btn btn-sm mt-2" style="border: 2px solid #000000;">See profiles</button>
+                        </div>
+                  
+                        <!-- Thẻ "Add bio" -->
+                        <div class="card text-center p-3 mx-1" style="width: 100px;">
+                          <i class="bi bi-pencil-square" style="font-size: 1.5rem;"></i>
+                          <p class="mt-2 mb-0">Add bio</p>
+                          <small>Introduce yourself and tell people what you're into.</small>
+                          <button class="btn btn-sm mt-2" style="border: 2px solid #000000;">Add</button>
+                        </div>
+                      </div>
+                    </div>
+                  <% } %>
+                  
+
+            
+        </div>
+    </main>
+    <%- include('partials/modal', {
+        modalId: 'postModal',
+        modalTitle: 'New Threads',
+        modalBody: '<p>Đây là nội dung của modal popup.</p>'
+    }) %>
+    <%- include("partials/followListModal") %>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/sidebar_bottombar.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
+<script>
+    function openEditProfile() {
+        document.getElementById('editProfileModal').classList.remove('hidden'); // Hiển thị modal
+    }
+
+    function closeEditProfile() {
+        document.getElementById('editProfileModal').classList.add('hidden'); // Ẩn modal
+    }
+
+    // Đóng modal khi click ra ngoài modal-content
+    window.onclick = function (event) {
+        const modal = document.getElementById('editProfileModal');
+        if (event.target === modal) {
+            closeEditProfile();
+        }
+    };
+
+    // Xử lý submit form qua AJAX
+    document.getElementById('profileEditForm').addEventListener('submit', async function (e) {
+        e.preventDefault(); // Ngăn hành động submit mặc định
+
+        const formData = new FormData(e.target);
+
+        try {
+            const response = await fetch('/edit-profile', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert(result.message); // Hiển thị thông báo
+                closeEditProfile(); // Đóng modal
+                location.reload(); // Reload trang để cập nhật dữ liệu
+            } else {
+                alert(result.message || 'Something went wrong.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while updating your profile.');
+        }
+    });
+</script>

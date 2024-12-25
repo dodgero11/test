@@ -1,0 +1,118 @@
+.sidebar-icons-extra img {
+    width: 40px !important; /* Increase size */
+    height: 40px !important; /* Maintain aspect ratio */
+}
+
+.logo-extra img, 
+.bottom-icons-extra img {
+    width: 40px !important; /* Increase size */
+    height: 40px !important; /* Maintain aspect ratio */
+}
+
+.sidebar-icons-extra img:hover {
+    filter: brightness(2) !important;
+    transform: scale(1.2) !important; /* Slight enlargement on hover */
+    transition: transform 0.3s ease, filter 0.3s ease !important;
+}
+
+.bottom-icons-extra img:hover {
+    filter: brightness(2) !important;
+    transform: scale(1.2) !important; /* Slight enlargement on hover */
+    transition: transform 0.3s ease, filter 0.3s ease !important;
+}
+
+.navbar-extra {
+    justify-content: center !important;
+    width: 600px !important; /* Full width */
+}
+
+.navbar-brand-extra {
+    font-size: 22px !important; /* Larger title size */
+}
+
+/* Hide the dropdown menu by default */
+.dropdown-menu-extra {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 90%; /* Aligns with the top of the menu icon */
+    left: 100%; /* Positions the menu to the right of the icon */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 150px;
+
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Adds fade-in/out effect */ 
+}
+
+/* Show the dropdown when hovering over the parent */
+.nav-item-extra:hover .dropdown-menu-extra,
+.nav-item-extra .dropdown-menu-extra:hover {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear; /* Removes the delay when showing */
+}
+
+/* Dropdown menu items */
+.dropdown-item-extra {
+    display: block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-item-extra:hover {
+    background-color: #f0f0f0;
+
+}
+
+/* Default light mode */
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #121212; /* Very dark background */
+    color: #fff; /* Light text for dark mode */
+}
+
+/* Adjust dropdown for dark mode */
+body.dark-mode .dropdown-menu-extra {
+    background-color: #333; /* Slightly lighter than body */
+    color: #fff; /* Light text for dropdown */
+}
+
+body.dark-mode .dropdown-item-extra:hover {
+    background-color: #444; /* Slightly lighter hover */
+}
+
+/* Icons - adjust for dark mode visibility */
+body.dark-mode .mode-icon {
+    filter: invert(1); /* Invert icons for visibility */
+}
+
+/* Dark mode styles */
+body.dark-mode .sidebar {
+    background-color: #333; /* Dark background */
+    color: #fff; /* Light text */
+}
+
+body.dark-mode .sidebar-icons a.nav-link img,
+body.dark-mode .bottom-icons a.nav-link img {
+    filter: invert(1); /* Invert icon colors for better visibility */
+}
+
+body.dark-mode .dropdown-menu-extra {
+    background-color: #444; /* Darker dropdown background */
+    color: #fff; /* Light text */
+}
+
+body.dark-mode .dropdown-menu-extra .mode-icon {
+    filter: invert(1); /* Adjust icons in dropdown for dark mode */
+}

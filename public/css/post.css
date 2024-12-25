@@ -1,0 +1,36 @@
+.comment-block {
+    padding-bottom: 15px;
+}
+
+.comment-block .replies .card {
+    margin-left: 10px;
+    background-color: #f9f9f9; /* Màu nền nhẹ cho các comment con */
+    border: 1px solid #eaeaea;
+}
+
+.comment-block .card-body {
+    padding: 10px;
+}
+
+.comment-block img {
+    border: 1px solid #ddd; /* Đường viền nhẹ cho ảnh avatar */
+}
+
+.comment-block .bi-heart,
+.comment-block .bi-chat,
+.comment-block .bi-share {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.comment-block .bi-heart:hover,
+.comment-block .bi-chat:hover,
+.comment-block .bi-share:hover {
+    opacity: 1;
+}
+
+.replies {
+    border-left: 2px solid #e2e2e2; /* Đường thẳng dọc để nhấn mạnh replies */
+    margin-left: 10px;
+    padding-left: 15px;
+}

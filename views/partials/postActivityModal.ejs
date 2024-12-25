@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/css/activity.css">
+<div class="modal fade post-activity-modal" id="postActivityModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content post-modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header post-activity-header">
+        <h5 class="modal-title">Post Activity</h5>
+        <!-- Nút Close -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="modal-tabs post-activity-tabs">
+        <ul class="nav nav-tabs justify-content-center" id="activityTabs">
+          <li class="nav-item">
+            <a class="nav-link active" id="likes-tab" data-toggle="tab" href="#likes" role="tab">Likes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="reposts-tab" data-toggle="tab" href="#reposts" role="tab">Reposts</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body post-activity-body">
+        <div class="tab-content">
+          <!-- Likes Tab -->
+          <div class="tab-pane fade show active" id="likes" role="tabpanel">
+            <div id="likes-list" class="activity-user-list"></div>
+          </div>
+          <div class="tab-pane fade" id="reposts" role="tabpanel">
+            <div id="reposts-list" class="activity-user-list"></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

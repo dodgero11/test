@@ -1,0 +1,185 @@
+@media (min-width: 1024px) {
+    /* Post feed */
+    .tab-content-extra .post-item {
+        font-size: 22px !important;
+    }
+
+    .tab-content-extra .post-item h6 {
+        font-size: 16px !important;
+    } 
+
+    .tab-content-extra .post-item small {
+        font-size: 14px !important;
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    .tab-content-extra .post-item .ml-2 {
+        padding: 0px !important;
+        margin: 0px 8px !important;
+    }
+
+    .tab-content-extra .post-item .ml-2 h6{
+        font-size: 16px !important;
+    }
+
+    .tab-content-extra .post-item img.rounded-circle {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    /* Profile header */
+    .profile-header-extra {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 16px !important;
+        background-color: #fff !important;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 8px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .profile-header-extra h5 {
+        font-size: 22px !important;
+        font-weight: bold !important;
+    }
+
+    .profile-header-extra small {
+        font-size: 14px !important;
+        color: #777 !important;
+    }
+
+    .profile-header-extra img {
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 50% !important;
+        border: 2px solid #ddd !important;
+    }
+
+    /* Edit profile button */ 
+    .text-center-extra .btn {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+        border-radius: 6px !important;
+        border: 1px solid #007bff !important;
+        background-color: #fff !important;
+        color: #007bff !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .text-center-extra .btn:hover {
+        background-color: #007bff !important;
+        color: #fff !important;
+    }
+
+    .d-flex-extra input {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        font-size: 20px !important;
+    }
+
+    .d-flex-extra button {
+        font-size: 18px !important;
+    }
+    
+    .d-flex-extra img {
+        /* Change image size */
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    /* Modal styling */
+    .profile-modal-extra {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 1000 !important;
+    }
+
+    .profile-modal-extra.hidden {
+        display: none !important;
+    }
+
+    .profile-modal-dialog-extra {
+        background-color: #fff !important;
+        padding: 16px !important;
+        border-radius: 8px !important;
+        max-width: 600px !important;
+        width: 100% !important;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .profile-modal-extra .modal-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 16px !important;
+    }
+
+    .profile-modal-extra .modal-header h5 {
+        font-size: 18px !important;
+        margin: 0 !important;
+    }
+
+    .profile-modal-extra .modal-header .close {
+        font-size: 18px !important;
+        cursor: pointer !important;
+    }
+
+    .profile-modal-extra .form-group label {
+        font-size: 14px !important;
+        font-weight: bold !important;
+    }
+
+    .profile-modal-extra .form-group input,
+    .profile-modal-extra .form-group textarea {
+        font-size: 12px !important;
+        padding: 8px !important;
+        border: 1px solid #ddd !important;
+        border-radius: 6px !important;
+        width: 100% !important;
+    }
+
+    .profile-modal-extra .btn-primary {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+    }
+    /* Profile Completion Cards */
+    .profile-completion-extra {
+        background-color: #007bff !important;
+        color: #fff !important;
+        padding: 16px !important;
+        border-radius: 8px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .profile-completion-extra .card {
+        background-color: #fff !important;
+        color: #333 !important;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 8px !important;
+        padding: 14px !important;
+        text-align: center !important;
+    }
+
+    .profile-completion-extra .card .btn {
+        background-color: transparent !important;
+        color: #007bff !important;
+        border: 2px solid #007bff !important;
+    }
+
+    .profile-completion-extra .card .btn:hover {
+        background-color: #007bff !important;
+        color: #fff !important;
+    }
+
+
+}

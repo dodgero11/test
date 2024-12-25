@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/header') %>
+    <link rel="stylesheet" href="/css/notifications.css">
+    <link rel="stylesheet" href="/css/notifications_extra.css">
+<body>
+    <!-- Sidebar -->
+    <%- include('partials/sidebar') %>
+    <%- include('partials/bottom_bar') %>
+    <div class="content-wrapper">
+        
+        
+    </div>
+    
+
+    <main class="main-container main-container-extra">
+        <%- include('partials/navbar', { 
+            showDropdown: true, 
+            navbarTitle: navbarTitle,  
+            dropdownOptions
+        }) %>
+        <div class="content-container content-container-extra">
+            <img src="/icons/profile.svg" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;"> 
+            <p class="plus-button" style ="opacity: 0.5;">What's new</p>
+            <button class="btn btn-outline-secondary ml-auto plus-button">Post</button>
+        </div>
+
+        <div class="post-feed post-feed-extra">
+            <div class="activity-list activity-list-extra">
+                <h5>Thông báo của bạn</h5>
+                <ul>
+                    <% notifications.forEach(notification => { %>
+                        <li class="d-flex align-items-center notification-item notification-item-extra <% if (notification.isRead) { %>read<% } %>"data-notification-id="<%= notification._id %>">
+                           
+                            <div>
+                                <img src="<%= notification.initiator.avatar || '/icons/profile.svg' %>" 
+                                alt="Avatar" 
+                                class="avatar-img rounded-circle mr-2">
+                                <!-- Tên người dùng và nội dung -->
+                                <strong><%= notification.initiator.username %></strong>
+                                <p class="mb-1"><%= notification.message %></p>
+                                <a href="<%= notification.link %>">Xem chi tiết</a>
+                                <p><small><%= notification.createdAt.toLocaleString() %></small></p>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+        
+        
+    </main>
+    <%- include('partials/modal', {
+        modalId: 'postModal',
+        modalTitle: 'New Threads',
+        modalBody: '<p>Đây là nội dung của modal popup.</p>'
+    }) %>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/sidebar_bottombar.js"></script>
+</body>
+</html>

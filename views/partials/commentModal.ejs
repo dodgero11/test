@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/replyModal.css">
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content reply-modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header reply-modal-header">
+        <h5 id="commentModalTitle" class="modal-title reply-modal-title" style="padding-left: 6em;">Reply</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Nội dung của bình luận gốc -->
+        <div class="original-comment mb-3">
+          <!-- Nội dung sẽ được AJAX cập nhật -->
+        </div>
+
+        <!-- Khu vực nhập liệu -->
+        <div class="reply-section">
+          <div class="user-info d-flex align-items-center mb-3">
+            <img src="<%= currentUserAvatar %>" alt="User Avatar" class="avatar">
+            <span class="username fw-bold"><%= currentUserUsername %></span>
+          </div>
+
+          <textarea class="form-control reply-input" id="reply-content" placeholder="Reply to this comment..." rows="3"></textarea>
+
+          <!-- Icon Options -->
+          <div class="reply-icon-options d-flex justify-content-between align-items-center mt-3">
+            <div class="icons-left d-flex">
+              <label for="uploadImage" class="me-2">
+                <i class="bi bi-image"></i>
+              </label>
+              <input type="file" id="uploadImage" accept="image/*" multiple style="display: none;">
+              <i class="bi bi-emoji-smile me-2" onclick="addEmoji()"></i>
+              <i class="bi bi-hash me-2" onclick="addHashtag()"></i>
+              <i class="bi bi-geo-alt" onclick="addLocation()"></i>
+            </div>
+            <button type="button" class="btn btn-primary reply-post-btn" id="submitReply" disabled>Post</button>
+          </div>
+
+          <!-- Hiển thị hình ảnh tải lên -->
+          <div id="imagePreview" class="mt-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,173 @@
+/* Modal Overlay */
+.custom-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3); /* Nền mờ */
+    z-index: 1050;
+}
+
+.custom-close-btn {
+    background: none; /* Xóa nền */
+    border: none; /* Xóa viền */
+    color: #000; /* Màu chữ */
+    font-size: 1rem; /* Kích thước chữ */
+    font-weight: bold; /* In đậm */
+    cursor: pointer; /* Biểu tượng con trỏ chuột */
+    position: absolute;
+    padding: 0px 30px 30px 30px;
+    right: 5px; /* Đặt nút Close về phía bên phải */
+    top: 10px; /* Đặt nút Close về phía trên */
+    transition: color 0.2s ease;
+    outline: none;
+}
+
+.custom-close-btn:focus {
+    outline: none; /* Chắc chắn không có viền khi focus */
+}
+
+.custom-close-btn:hover {
+    color: #888; /* Hiệu ứng hover đổi màu */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    border-radius: 20px; /* Bo tròn nhẹ */
+    width: 500px; /* Chiều rộng cố định */
+    max-width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 0;
+}
+
+/* Tabs */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+    margin-bottom: 10px;
+}
+
+.nav-tabs .nav-item {
+    margin: 0 50px; /* Tăng khoảng cách giữa các tab */
+}
+
+.nav-tabs .nav-link {
+    font-weight: bold;
+    color: #aaa;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.nav-tabs .nav-link.active {
+    color: #000;
+    border-bottom: 3px solid #000;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 10px 20px;
+    max-height: 300px;
+    overflow-y: auto; /* Cuộn nội dung khi quá dài */
+}
+
+/* User Item */
+.follower-item,
+.following-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Thêm nút Follow về bên phải */
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.follower-item img,
+.following-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.follower-item span,
+.following-item span {
+    display: flex; /* Sử dụng flexbox */
+    justify-content: space-between; /* Canh đều hai bên */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.user-avatar {
+    width: 40px; /* Kích thước ảnh đại diện */
+    height: 40px;
+    border-radius: 50%; /* Bo tròn ảnh đại diện */
+    object-fit: cover; /* Đảm bảo ảnh vừa khít */
+}
+
+.username {
+    font-size: 1rem; /* Kích thước chữ cho username */
+    font-weight: bold;
+    color: #000;
+    position: absolute !important;
+    margin-left: 3rem !important;
+}
+/* Follow Button */
+.follow-btn {
+    background-color: none !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.follow-btn:hover {
+    background-color: #e6e6e6;
+}
+
+/* Responsive Cho Màn Hình Nhỏ */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        border-radius: 15px;
+    }
+
+    .nav-tabs .nav-item {
+        margin: 0 20px; /* Khoảng cách nhỏ hơn trên màn hình nhỏ */
+    }
+
+    .follower-item img,
+    .following-item img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .follower-item span,
+    .following-item span {
+        font-size: 0.9rem;
+    }
+
+    .follow-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}

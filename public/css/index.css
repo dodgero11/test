@@ -1,0 +1,124 @@
+/* Post Feed Container */
+.post-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* Card Layout */
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* User Info */
+.card-info .avatar img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-info h5 {
+  font-weight: 600;
+  color: #333;
+}
+
+.card-info small {
+  color: #888;
+}
+
+/* Post Content */
+.card-text {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Post Images */
+.post-carousel {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.post-image {
+  height: 250px; /* Giảm kích thước ảnh */
+  object-fit: cover; /* Hiển thị ảnh gọn gàng */
+}
+
+/* Carousel Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+/* Like, Comment, Repost Buttons */
+.like-button img,
+.comment-button img,
+.repost-button img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.like-button:hover img,
+.comment-button:hover img,
+.repost-button:hover img {
+  transform: scale(1.2); /* Phóng to nhẹ khi hover */
+}
+
+.like-count,
+.comment-count,
+.repost-count {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* More Options Button */
+.more-options {
+  color: #888;
+}
+
+.more-options:hover {
+  color: #333;
+}
+
+/* Reponsive Adjustments */
+@media (max-width: 768px) {
+  .post-image {
+    height: 180px;
+  }
+}
+/* Carousel Container */
+.post-carousel {
+  width: 100%; /* Chiếm toàn bộ chiều rộng */
+  max-width: 50%; /* Giới hạn kích thước tối đa */
+  overflow: hidden; /* Ẩn các phần thừa */
+}
+
+/* Ảnh trong Carousel giữ tỷ lệ gốc */
+.post-carousel .carousel-inner .carousel-item img {
+  width: auto; /* Đảm bảo ảnh không vượt quá chiều rộng của container */
+  height: 200px; /* Giữ nguyên tỷ lệ gốc của ảnh */
+  object-fit: cover; /* Hiển thị toàn bộ ảnh mà không bị cắt */
+  border-radius: 1rem; /* Bo tròn góc ảnh */
+}

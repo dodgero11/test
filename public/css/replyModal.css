@@ -1,0 +1,184 @@
+.modal-backdrop {
+  z-index: 1040; /* Backdrop thấp hơn modal */
+}
+
+.modal {
+  z-index: 1050; /* Modal cao hơn backdrop */
+}
+.modal-dialog {
+  pointer-events: auto; /* Cho phép tương tác trong modal */
+}
+
+.modal {
+  pointer-events: none; /* Ngăn sự kiện click ở cha modal */
+}
+
+.modal .modal-dialog {
+  pointer-events: auto; /* Chỉ modal-dialog nhận sự kiện click */
+}
+
+
+.reply-modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  padding: 15px 20px;
+  max-width: 500px; /* Chiều rộng tối đa */
+  width: 100%;
+  height: auto !important;
+}
+/* Modal Header */
+.reply-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+  padding-bottom: 10px;
+}
+
+.reply-modal-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0 auto;
+  color: #000;
+}
+
+.reply-modal-header .close-btn {
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* User Info Section */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-info .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info .username {
+  font-weight: bold;
+  color: #000;
+  font-size: 0.95rem;
+}
+
+/* Textarea Input */
+.reply-input {
+  width: 100%;
+  border: none;
+  resize: none;
+  font-size: 1rem;
+  color: #000;
+  outline: none;
+  padding-left: 1rem;
+  margin-top: 5px;
+  min-height: 60px;
+}
+
+.reply-input::placeholder {
+  color: #ccc;
+}
+
+/* Icons and Options */
+.reply-icon-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.reply-icon-options .icons-left i {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.reply-icon-options .icons-left i:hover {
+  color: #000;
+}
+
+.reply-icon-options .btn.reply-post-btn {
+  background-color: #ccc;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: not-allowed;
+}
+
+.reply-icon-options .btn.reply-post-btn.active {
+  background-color: #007bff;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Image Preview */
+#imagePreview {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+#imagePreview img {
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #e0e0e0;
+}
+
+.reply-section{
+  padding-left: 3rem;
+  border-radius: 0.5rem;
+  z-index: 1050;
+}
+
+.media-body{
+  flex: 1;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid black;
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .reply-modal-content {
+      width: 90%;
+      padding: 10px;
+  }
+
+  .reply-modal-title {
+      font-size: 1rem;
+  }
+
+  .reply-icon-options .btn.reply-post-btn {
+      font-size: 0.9rem;
+      padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .reply-modal-content {
+      border-radius: 10px;
+  }
+
+  .reply-modal-title {
+      font-size: 0.9rem;
+  }
+
+  .reply-input {
+      font-size: 0.9rem;
+  }
+}

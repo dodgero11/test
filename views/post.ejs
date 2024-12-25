@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/header') %>
+    <link rel="stylesheet" href="/css/post.css">
+<body>
+    <!-- Sidebar -->
+    <%- include('partials/sidebar') %>
+    <%- include('partials/bottom_bar') %>
+
+    <div class="content-wrapper"></div>
+    
+
+    <main class="main-container">
+        <%- include('partials/navbar', { 
+            showDropdown: false, 
+            navbarTitle: "Thread", 
+            dropdownOptions: [
+                { href: "#", label: "Follow", active: false },
+            ] 
+        }) %>
+        <div class="content-container">
+            <img src="/icons/profile.svg" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;"> 
+            <p class="plus-button" style ="opacity: 0.5;">What's new</p>
+            <button class="btn btn-outline-secondary ml-auto plus-button">Post</button>
+        </div>
+        <div class="post-feed">
+            <!-- Bài đăng chính -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  <img src="<%= post.author.avatar || '/icons/profile.svg' %>" 
+                       alt="Avatar" class="rounded-circle mr-3" style="width: 40px; height: 40px;">
+                  <div>
+                    <h6 class="mb-0"><%= post.author.username %></h6>
+                    <small><%= new Date(post.createdAt).toLocaleString() %></small>
+                  </div>
+                </div>
+                <p class="card-text"><%= post.content %></p>
+          
+                <!-- Nút tương tác -->
+                <div class="d-flex justify-content-start mt-2">
+                  <button class="btn btn-link like-button" data-post-id="<%= post._id %>">
+                    <img src="<%= post.likes.some(user => user._id.toString() === currentUserId) ? '/icons/heart_active.svg' : '/icons/heart.svg' %>" 
+                                        alt="Like" 
+                                        class="like-icon" 
+                                        style="width: 20px; height: 20px;">
+                    <span class="like-count"><%= post.likes.length %></span>
+                  </button>
+          
+                  <button class="btn btn-link comment-button ml-3" data-post-id="<%= post._id %>">
+                    <img src="/icons/comment.svg" alt="Comment" class="comment-icon" style="width: 20px; height: 20px;">
+                    <span class="comment-count"><%= post.comments.length %></span>
+                  </button>
+          
+                  <button class="btn btn-link repost-button ml-3" data-post-id="<%= post._id %>">
+                    <img src="/icons/repost.svg" alt="Repost" class="repost-icon" style="width: 20px; height: 20px;">
+                    <span class="repost-count"><%= post.reposts ? post.reposts.length : 0 %></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          
+            <!-- Placeholder cho Comments -->
+            <h5>Replies</h5>
+            <div class="comments-container">
+              <!-- Comments sẽ được thêm động vào đây qua AJAX -->
+            </div>
+          </div>
+          
+        
+        
+        
+    </main>
+    <%- include('partials/modal', {
+        modalId: 'postModal',
+        modalTitle: 'New Threads',
+        modalBody: '<p>Đây là nội dung của modal popup.</p>'
+    }) %>
+    <%- include('partials/postActivityModal') %>
+    <%- include('partials/commentModal') %>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/sidebar_bottombar.js"></script>
+</body>
+</html>

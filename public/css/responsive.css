@@ -1,0 +1,232 @@
+
+@media (min-width: 768px){
+    .main-container {
+        margin: 0 auto;
+        margin-top: 20px;
+        width:600px;
+        color: #050101;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 2rem;
+        padding-top: 20px;
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 600px;
+        z-index: 1000;
+        background-color: #ffffff;
+        border-bottom: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%; /* Chiếm toàn bộ chiều rộng của .content-wrapper */
+        z-index: 1000;
+        background-color: #ffffff;
+        border-bottom: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        box-sizing: border-box;
+    }
+    /* Đảm bảo `.content-container` và các phần tử con bên trong điều chỉnh theo kích thước màn hình */
+    .content-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content-container img {
+        width: 30px; /* Giảm kích thước avatar */
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+    .plus-button {
+        width: 100%; /* Đảm bảo nút Post chiếm toàn bộ chiều rộng */
+        margin-top: 10px;
+    }
+
+    .post-feed .card {
+        margin-bottom: 10px;
+    }
+
+    .post-feed .card-body {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .bi {
+        font-size: 1.2rem;
+        margin-right: 5px;
+    }
+}
+/* Modal chỉnh sửa hồ sơ */
+.profile-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Màu nền tối hơn */
+    z-index: 1050;
+    animation: fadeIn 0.3s ease; /* Hiệu ứng xuất hiện */
+}
+
+/* Ẩn modal */
+.profile-modal.hidden {
+    display: none !important;
+}
+
+/* Nội dung modal */
+.profile-modal .profile-modal-dialog {
+    background-color: #ffffff;
+    border-radius: 16px; /* Bo góc mềm mại hơn */
+    padding: 25px;
+    width: 450px; /* Chiều rộng modal tăng lên */
+    max-width: 90%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn */
+    position: relative;
+    animation: scaleUp 0.3s ease; /* Hiệu ứng mở rộng */
+}
+
+/* Header modal */
+.profile-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+/* Tiêu đề */
+.profile-modal .modal-header h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Nút đóng */
+.profile-modal .close {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.profile-modal .close:hover {
+    color: #ff6b6b; /* Màu khi hover */
+}
+
+/* Body modal */
+.profile-modal .modal-body {
+    text-align: left;
+    color: #444;
+}
+
+/* Form nhóm */
+.profile-modal .form-group {
+    margin-bottom: 20px;
+}
+
+.profile-modal .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Input */
+.profile-modal .form-control,
+.profile-modal .form-control-file {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.profile-modal .form-control:focus,
+.profile-modal .form-control-file:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Nút trong modal */
+.profile-modal .btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.profile-modal .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+}
+
+.profile-modal .btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 91, 187, 0.5);
+}
+
+.profile-modal .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: #fff;
+}
+
+.profile-modal .btn-secondary:hover {
+    background-color: #5a6268;
+    box-shadow: 0 4px 12px rgba(90, 98, 104, 0.5);
+}
+
+/* Hiệu ứng */
+@keyframes fadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

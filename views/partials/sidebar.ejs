@@ -1,0 +1,60 @@
+<!-- partials/sidebar.ejs -->
+<nav class="sidebar d-none d-md-flex flex-column">
+    <!-- Logo ở phần trên cùng -->
+    <div class="logo-extra mb-4">
+        <img src="/icons/logo.svg" alt="Threads Logo" class="img-fluid">
+    </div>
+
+    <!-- Wrapper cho các icon để căn giữa dọc -->
+    <div class="sidebar-icons sidebar-icons-extra d-flex flex-column align-items-center justify-content-center">
+        <div class="nav flex-column">
+            <div class="nav-item mb-3">
+                <a class="nav-link" href="/home">
+                    <img src="/icons/home.svg" alt="Home Icon">
+                </a>
+            </div>
+            <div class="nav-item mb-3">
+                <a class="nav-link" href="/search">
+                    <img src="/icons/search.svg" alt="Search Icon">
+                </a>
+            </div>
+            <div class="nav-item mb-3">
+                <a class="nav-link plus-button" href="#">
+                    <img src="/icons/plus.svg" class="plus-button" alt="Add Icon">
+                </a>
+            </div>
+            <div class="nav-item mb-3">
+                <a class="nav-link" href="/notifications">
+                    <img src="/icons/heart.svg" alt="Favorites Icon">
+                </a>
+            </div>
+            <div class="nav-item mb-3"> 
+                <a class="nav-link" href="/profile/<%= user._id %>">
+                    <img src="/icons/profile.svg" alt="Profile Icon">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pin and Menu Icons at the bottom -->
+    <div class="bottom-icons bottom-icons-extra d-flex flex-column align-items-center">
+        <div class="nav-item mb-3">
+            <a class="nav-link" href="/auth/logout">
+                <img src="/icons/logout.svg" alt="Logout Icon" style="cursor: pointer;">
+            </a>
+        </div>
+        <div class="nav-item nav-item-extra mb-3">
+            <div class="nav-link-extra" id="menuButton">
+                <img src="/icons/menu.svg" alt="Menu Icon" style="cursor: pointer;">
+            </div>
+            <div class="dropdown-menu-extra" id="dropdownMenu">
+                <a class="dropdown-item-extra" href="#" id="lightModeToggle">
+                    <img src="../icons/sun.png" alt="Sun Icon" class="mode-icon">
+                </a>
+                <a class="dropdown-item-extra" href="#" id="darkModeToggle">
+                    <img src="../icons/moon.png" alt="Moon Icon" class="mode-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

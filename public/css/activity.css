@@ -1,0 +1,129 @@
+/* Modal Tổng Thể */
+.post-activity-modal .modal-content {
+  border-radius: 20px; /* Bo tròn cả phần trên và dưới */
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden; /* Đảm bảo các góc bo tròn */
+}
+
+/* Header */
+.post-activity-modal .post-activity-header {
+  background-color: #fff;
+  border-bottom: none;
+  text-align: center;
+  padding: 15px;
+}
+
+.post-activity-modal .post-activity-header .modal-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+/* Tabs */
+.post-activity-modal .post-activity-tabs {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.post-activity-modal .post-activity-tabs .nav-tabs .nav-link {
+  border: none;
+  color: #aaa;
+  font-weight: 600;
+}
+
+.post-activity-modal .post-activity-tabs .nav-tabs .nav-link.active {
+  color: #000;
+  font-weight: bold;
+  border-bottom: 2px solid #000; /* Đường kẻ dưới tab active */
+}
+
+/* Body */
+.post-activity-modal .post-activity-body {
+  padding: 20px;
+  background-color: #fff;
+  min-height: 300px; /* Đặt chiều cao tối thiểu */
+}
+
+/* Tab Content */
+.post-activity-modal .tab-pane {
+  padding: 10px 0;
+}
+/* Nút Close trong Modal Header */
+.post-activity-modal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #aaa;
+  opacity: 0.7;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.post-activity-modal .close:hover {
+  color: #000;
+  opacity: 1;
+  cursor: pointer;
+}
+/* Container chung cho danh sách */
+.activity-user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Khoảng cách giữa các user-item */
+  max-height: 300px; /* Chiều cao tối đa để scroll */
+  overflow-y: auto; /* Cuộn khi nội dung quá dài */
+  padding: 10px 0; /* Thêm padding */
+}
+
+/* Từng user-item trong danh sách */
+.activity-user-list .user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9; /* Màu nền nhẹ */
+  border-radius: 8px; /* Bo tròn viền */
+  padding: 10px 15px; /* Khoảng cách nội dung */
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect cho user-item */
+.activity-user-list .user-item:hover {
+  background-color: #f1f1f1; /* Đổi màu nền khi hover */
+}
+
+/* Avatar */
+.activity-user-list .user-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Avatar bo tròn */
+  object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+}
+
+/* Username */
+.activity-user-list .user-item h6 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Follow Button */
+.activity-user-list .btn-follow {
+  font-size: 0.9rem;
+  color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 20px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.activity-user-list .btn-follow:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+.post-activity-tabs .nav-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Khoảng cách giữa các tab */
+}

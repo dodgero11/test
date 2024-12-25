@@ -1,0 +1,100 @@
+<link href="/css/followModal.css" rel="stylesheet">
+<div class="custom-modal d-none" id="followModal">
+    <div class="modal-dialog">
+      <div class="modal-content p-4">
+        <button type="button" class="custom-close-btn" onclick="closeModal()">Đóng</button>
+        <!-- Header với các tab -->
+        <div class="modal-header border-0 d-flex justify-content-center position-relative">
+
+          <ul class="nav nav-tabs border-bottom-0" id="followTabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" onclick="showFollowers()">Followers <span id="followerCount"><%= followersCount %></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="showFollowing()">Following <span id="followingCount"><%= followingCount %></span></a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Nội dung modal -->
+        <div class="modal-body text-center">
+          <div id="followersList">
+            <% if (followers.length > 0) { %>
+              <% followers.forEach(follower => { %>
+                <div class="follower-item">
+                  <span class="d-flex justify-content-between align-items-center w-100">
+                      <img src="<%='/icons/profile.svg' %>" alt="Avatar" class="user-avatar">
+                      <span class="username" style="position: absolute; margin-left: 2rem;"><%= follower.username %></span>
+                      <button class="follow-btn">Follow</button>
+                  </span>
+                </div>
+              <% }); %>
+            <% } else { %>
+              <p>No followers yet.</p>
+            <% } %>
+          </div>
+
+          <div id="followingList" class="d-none">
+            <% if (following.length > 0) { %>
+              <% following.forEach(followingUser => { %>
+                <div class="following-item">
+                  
+                  <span class="d-flex justify-content-between align-items-center w-100">
+                    <img src="<%='/icons/profile.svg' %>" alt="Avatar" class="user-avatar">
+                    <span class="username" style="position: absolute; margin-left: 2rem;"><%= followingUser.username %></span>
+                    <button class="follow-btn">Follow</button>
+                  </span>
+                  
+                </div>
+              <% }); %>
+            <% } else { %>
+              <p>No following yet.</p>
+            <% } %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+<script>
+function openModal() {
+  document.getElementById("followModal").classList.remove("d-none");
+  showFollowers(); // Hiển thị tab Followers mặc định
+}
+
+
+function closeModal() {
+  document.getElementById("followModal").classList.add("d-none");
+  showFollowers(); // Hiển thị tab Followers mặc định
+}
+
+
+
+
+function showFollowers() {
+  // Hiển thị danh sách Followers
+  document.getElementById("followersList").classList.remove("d-none");
+  document.getElementById("followingList").classList.add("d-none");
+
+  // Thêm class active vào tab Followers
+  const tabs = document.querySelectorAll("#followTabs .nav-link");
+  tabs.forEach((tab) => tab.classList.remove("active"));
+  tabs[0].classList.add("active");
+}
+
+function showFollowing() {
+  // Hiển thị danh sách Following
+  document.getElementById("followingList").classList.remove("d-none");
+  document.getElementById("followersList").classList.add("d-none");
+
+  // Thêm class active vào tab Following
+  const tabs = document.querySelectorAll("#followTabs .nav-link");
+  tabs.forEach((tab) => tab.classList.remove("active"));
+  tabs[1].classList.add("active");
+}
+
+</script>

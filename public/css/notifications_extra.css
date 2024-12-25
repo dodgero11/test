@@ -1,0 +1,67 @@
+@media (min-width: 1024px) {
+    .content-container-extra p {
+        font-size: 20px !important; /* Increase text size */
+    }
+
+    .content-container-extra .btn {
+        font-size: 14px !important; /* Bigger button text */
+        padding: 10px 20px !important; /* Larger button padding */
+    }
+
+    .activity-list-extra {
+        margin: 0 auto !important; /* Center content */
+        max-width: 600px !important; /* Limit width */
+        width: 100% !important;
+    }
+
+    .activity-list-extra h5 {
+        font-size: 22px !important; /* Larger header font size */
+        font-weight: bold !important;
+        margin-bottom: 20px !important;
+    }
+
+    .activity-list-extra ul {
+        list-style: none !important;
+        padding: 0 !important;
+    }
+
+    .notification-item-extra {
+        align-items: center !important; /* Center items */
+        padding: 12px !important; /* Add padding inside */
+        margin-bottom: 10px !important; /* Space between notifications */
+        border: 1px solid #ccc !important; /* Add border */
+        border-radius: 12px !important; /* Rounded corners */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2) !important; /* Subtle shadow */
+        background-color: #fff !important; /* White background */
+        max-width: 600px !important; /* Limit width */
+        width: 100% !important;
+    }
+
+    .notification-item-extra.read {
+        opacity: 0.7 !important; /* Dim read notifications */
+    }
+
+    .notification-item-extra strong {
+        font-size: 16px !important; /* Larger username font */
+    }
+
+    .notification-item-extra p {
+        font-size: 14px !important; /* Larger notification text */
+        color: #555 !important; /* Subtle text color */
+    }
+
+    .notification-item-extra a {
+        font-size: 14px !important; /* Larger link font size */
+        color: #007bff !important; /* Link color */
+        text-decoration: none !important; /* No underline */
+    }
+
+    .notification-item-extra a:hover {
+        text-decoration: underline !important; /* Underline on hover */
+    }
+
+    .notification-item-extra small {
+        font-size: 12px !important; /* Smaller timestamp */
+        color: #888 !important;
+    }
+}

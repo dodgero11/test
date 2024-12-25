@@ -1,0 +1,87 @@
+
+.post-feed .search-bar input {
+    background-color: #ffffff !important; /* Màu nền trắng */
+    color: #000000 !important; /* Màu chữ đen, đảm bảo hiển thị */
+    border: 1px solid #ccc; /* Viền nhạt */
+    border-radius: 20px; /* Bo tròn */
+    padding: 12px 18px; /* Khoảng cách trong */
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    z-index: 1; /* Đảm bảo input nằm trên cùng */
+    position: relative; /* Vị trí rõ ràng để ưu tiên */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+.post-feed .search-bar input:focus {
+    outline: none;
+    border-color: #007bff; /* Màu xanh khi focus */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Đổ bóng khi focus */
+}
+
+.post-feed .search-bar input::placeholder {
+    color: #888888; /* Màu chữ placeholder trung tính */
+    font-style: italic; /* Placeholder nghiêng */
+}
+
+
+/* Follow Suggestions Title */
+.post-feed h6 {
+    font-size: 1rem; /* Tăng kích thước chữ */
+    font-weight: bold;
+    color: #007bff; /* Màu xanh để nổi bật */
+    margin-bottom: 15px; /* Khoảng cách dưới */
+}
+
+/* Suggestion List Cards */
+.suggestion-list .card {
+    background-color: #f9f9f9; /* Màu nền nhẹ hơn */
+    border: 1px solid #e6e6e6; /* Đường viền nhạt */
+    border-radius: 10px; /* Bo tròn góc */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hiệu ứng hover */
+}
+
+.suggestion-list .card:hover {
+    transform: translateY(-5px); /* Nâng thẻ lên khi hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm hơn */
+}
+
+/* User Information Inside Card */
+.suggestion-list .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.suggestion-list .card-body img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Ảnh avatar hình tròn */
+    margin-right: 15px; /* Khoảng cách với nội dung */
+}
+
+.suggestion-list .card-body h6 {
+    margin: 0;
+    color: #333; /* Màu chữ chính */
+    font-weight: bold;
+}
+
+.suggestion-list .card-body small {
+    color: #777; /* Màu chữ phụ */
+}
+
+/* Follow Button */
+.suggestion-list .card-body .follow-button {
+    color: #007bff; /* Màu xanh chữ */
+    border: 2px solid #007bff; /* Viền xanh */
+    background-color: transparent;
+    padding: 8px 16px; /* Khoảng cách trong */
+    border-radius: 20px; /* Bo tròn nút */
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.suggestion-list .card-body .follow-button:hover {
+    background-color: #007bff; /* Nền xanh khi hover */
+    color: #fff; /* Chữ trắng khi hover */
+}

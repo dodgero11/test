@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threads Clone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
+    <link href="css/navbar_sidebar.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- các file css cho từng trang thì mn add thêm vào nha, nhớ đừng css chung 1 file bự, làm file nào css file đó, đỡ rối mắt -->
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <%- include('partials/sidebar') %>
+    <%- include('partials/bottom_bar') %>
+
+
+    <div class="content-wrapper">
+        
+    </div>
+    
+
+    <main class="main-container">
+        <%- include('partials/navbar', { showDropdown: true, navbarTitle: "For you" }) %>
+        <div class="content-container">
+            <img src="icons/profile.svg" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;"> 
+            <p class="plus-button" style ="opacity: 0.5;">What's new</p>
+            <button class="btn btn-outline-secondary ml-auto plus-button">Post</button>
+        </div>
+
+        <div class="post-feed">
+            <!-- mọi thứ sẽ nằm trong thẻ này, đừng cố đổi cấu trúc bên ngoài -->
+        </div>
+    </main>
+    <%- include('partials/modal', {
+        modalId: 'postModal',
+        modalTitle: 'New Threads',
+        modalBody: '<p>Đây là nội dung của modal popup.</p>'
+    }) %>
+    <script src="/js/main.js"></script>
+    <script src="/js/sidebar_bottombar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

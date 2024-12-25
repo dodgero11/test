@@ -1,0 +1,84 @@
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.login-container {
+    width: 90%;
+    max-width: 600px; /* Limit maximum size for larger screens */
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Shadow for better visibility */
+}
+
+.logo {
+    width: 80%; /* Scale logo size relative to screen width */
+    max-width: 400px;
+    height: auto;
+    margin-top: -50px;
+}
+
+.login-container .form-control {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px;
+}
+
+.login-container .form-control::placeholder {
+    color: #aaa;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border: none;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+}
+
+.text-primary {
+    font-size: 1.2rem;
+}
+
+.text-light {
+    font-size: 1.2rem;
+}
+
+/* Smaller screens (likes phones...) */
+@media (max-width: 576px) {
+    .logo {
+        width: 60%; /* Scale down logo on phones */
+        margin-top: -30px;
+    }
+
+    .login-container {
+        padding: 15px;
+    }
+
+    .btn-primary {
+        font-size: 1rem; 
+        padding: 8px 16px;
+    }
+
+    .login-container .form-control {
+        font-size: 1rem; 
+    }
+
+    .nav-link,
+    .text-primary,
+    .text-light {
+        font-size: 0.9rem;
+    }
+}

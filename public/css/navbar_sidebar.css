@@ -1,0 +1,140 @@
+/* Sidebar */
+.sidebar {
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #ffffff;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: none;
+    justify-content: space-between;
+}
+
+
+/* Bottom navigation bar trên màn hình nhỏ */
+@media (max-width: 768px) {
+    /* Đặt sidebar ở dưới cùng màn hình */
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0;
+        z-index: 1000;
+        border-top: 1px solid #ddd;
+    }
+
+    .sidebar-icons {
+        flex-direction: row;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /* Ẩn logo và các phần không cần thiết */
+    .logo, .bottom-icons {
+        display: none;
+    }
+}
+
+.sidebar-icons img, .logo img, .bottom-icons img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(1.5);
+}
+
+.sidebar-icons .nav-item {
+    margin-bottom: 20px;
+}
+
+.sidebar-icons .nav-item img {
+    transition: filter 0.3s;
+}
+
+.sidebar-icons .nav-item img:hover {
+    filter: brightness(2);
+}
+
+.sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.bottom-icons {
+    margin-bottom: 20px;
+}
+
+/* Content Wrapper để giới hạn chiều rộng của Navbar và Content */
+.content-wrapper {
+    max-width: 600px; /* Giới hạn chiều rộng */
+    margin: 0 auto; /* Căn giữa .content-wrapper */
+    padding-top: 60px; /* Tạo khoảng cách cho navbar cố định */
+    padding-bottom: 20px; /* Thêm khoảng cách phía dưới để cách biệt với main-container */
+    box-sizing: border-box;
+}
+
+/* Navbar cố định ở trên cùng */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 30%; /* Chiếm toàn bộ chiều rộng của .content-wrapper */
+    z-index: 1000;
+    border-bottom: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.navbar-light{
+    background-color: rgba(250, 250, 250, 1) !important;
+}
+/* Dropdown căn giữa */
+.dropdown-menu-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 1024px) {
+    .navbar {
+        width: 100%; /* Match content width */
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-wrapper {
+        max-width: 1200px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sidebar {
+        width: 100px;
+    }
+}
+
+.sidebar-icons img, 
+.logo img, 
+.bottom-icons img {
+    width: 40px; /* Increase size */
+    height: 40px; /* Maintain aspect ratio */
+}
+
+.sidebar-icons .nav-item img:hover {
+    filter: brightness(2);
+    transform: scale(1.3); /* Slight enlargement on hover */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
